@@ -26,12 +26,6 @@ variable "default_zone" {
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
 }
 
-variable "default_cidr" {
-  type        = list(string)
-  default     = ["192.168.10.0/24"]
-  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
-}
-
 variable "subnets" {
   type        = list(string)
   default     = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
@@ -44,8 +38,50 @@ variable "cidrs" {
   description = "zone cirds (https://cloud.yandex.ru/docs/overview/concepts/geo-scope)"
 }
 
-variable "master_subnet" {
+variable "vms" {
+  type = map(any)
+  default = {
+    cores         = 2,
+    memory        = 2,
+    core_fraction = 20,
+    platform_id   = "standard-v3"
+    image_family  = "ubuntu-2204-lts"
+    image_id      = "fd8g2ntguckjq2boqjmh"
+    disk_size     = 40
+  }
+}
+
+variable "vms_master_name" {
   type        = string
-  default     = "master_subnet"
-  description = "Subnet name for master"
+  default     = "master"
+  description = "Name for master"
+}
+
+variable "master_count" {
+  type        = number
+  default     = 1
+  description = "Count for master"
+}
+
+variable "vms_worker_name" {
+  type        = string
+  default     = "worker"
+  description = "Name for worker"
+}
+
+variable "worker_count" {
+  type        = number
+  default     = 3
+  description = "Count for worker"
+}
+
+variable "user_name" {
+  type = string
+  default = "ubuntu"
+}
+
+variable "web_provision" {
+  type        = bool
+  default     = true
+  description = "ansible provision switch variable"
 }

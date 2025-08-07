@@ -96,6 +96,13 @@
 2. В файле `~/.kube/config` находятся данные для доступа к кластеру.
 3. Команда `kubectl get pods --all-namespaces` отрабатывает без ошибок.
 
+## Решение Kubernetes кластера
+
+Для развертывания кластера Kubernetes был использован [Kubespray](https://github.com/kubernetes-sigs/kubespray) 
+
+![7](./img/7.png)
+
+
 ---
 ### Создание тестового приложения
 

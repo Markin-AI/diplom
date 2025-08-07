@@ -1,0 +1,35 @@
+---
+- name: Перенос конфигурационного файла на управляющий хост
+  hosts: kube_control_plane
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Сохранение переменной
+      set_fact:
+        kube_control_node: "{{ ansible_host }}"
+    - name: Выввод ip адреса мастер node
+      debug:
+        var: kube_control_node
+
+    - name: Создание копии конфигурационного файла
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: /etc/kubernetes/config.conf
+        remote_src: yes
+        mode: 0755
+
+    - name: Смена ip адреса в конфигурационном файле
+      replace:
+        path: /etc/kubernetes/config.conf
+        regexp: "server: https://[0-9.]*:"
+        replace: "server: https://{{ kube_control_node }}:"
+    
+    - name: Перенос конфигурации
+      synchronize:
+        src: /etc/kubernetes/config.conf
+        dest: ~/.kube/config
+        delete: yes
+        recursive: yes
+        owner: no
+        group: no
+        mode: pull
