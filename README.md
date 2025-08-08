@@ -96,7 +96,7 @@
 2. В файле `~/.kube/config` находятся данные для доступа к кластеру.
 3. Команда `kubectl get pods --all-namespaces` отрабатывает без ошибок.
 
-## Решение Kubernetes кластера
+## Решение создание Kubernetes кластера
 
 Для развертывания кластера Kubernetes был использован [Kubespray](https://github.com/kubernetes-sigs/kubespray) 
 
@@ -120,6 +120,14 @@
 
 1. Git репозиторий с тестовым приложением и Dockerfile.
 2. Регистри с собранным docker image. В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
+
+### Решение создание тестового приложения
+
+Был создан отдельный [Git репозиторий](https://github.com/Markin-AI/diplom_app) с конфигруацией для nginx и dockerfile
+
+Получившийся Docker образ был опубликован в [Dockerhub](https://hub.docker.com/repository/docker/markinai/diplom_app/general)
+
+![8](./img/8.png)
 
 ---
 ### Подготовка cистемы мониторинга и деплой приложения
