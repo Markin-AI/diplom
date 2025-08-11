@@ -28,12 +28,12 @@ spec:
         - name: ATLANTIS_GH_TOKEN
           valueFrom:
             secretKeyRef:
-              name: atlantis-vcs1
+              name: atlantis-vcs
               key: token
         - name: ATLANTIS_GH_WEBHOOK_SECRET
           valueFrom:
             secretKeyRef:
-              name: atlantis-vcs1
+              name: atlantis-vcs
               key: webhook-secret
         ### End GitHub Config ###
 
