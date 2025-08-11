@@ -1,0 +1,10 @@
+name: my-ingress
+host: ""
+
+grafana:
+  svc_name: my-kube-prometheus-stack-grafana
+  port: 80
+
+app:
+  svc_name: myapp-svc
+  port: 80

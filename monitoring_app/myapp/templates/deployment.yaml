@@ -1,0 +1,19 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.deploy.name}}
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: {{.Values.deploy.containername}}
+        image: markinai/diplom_app:v1.0.0
+        ports:
+        - containerPort: {{.Values.deploy.port}}
