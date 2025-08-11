@@ -63,3 +63,5 @@ resource "yandex_compute_instance" "worker" {
   }
   metadata = local.ssh_keys_and_serial_port
 }
+
+resource "null_resource" "example" {}
