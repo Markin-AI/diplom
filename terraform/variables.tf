@@ -71,7 +71,7 @@ variable "vms_worker_name" {
 
 variable "worker_count" {
   type        = number
-  default     = 2
+  default     = 3
   description = "Count for worker"
 }
 
