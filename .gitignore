@@ -14,3 +14,9 @@ personal.auto.tfvars
 # vscode config
 
 **/.vscode/*
+
+# Atlantis
+
+token
+
+webhook-secret
