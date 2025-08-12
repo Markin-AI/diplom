@@ -164,6 +164,8 @@
 
 ![11](./img/11.png)
 
+![12](./img/12.png)
+
 Ожидаемый результат:
 1. [Git репозиторий](https://github.com/kubernetes-sigs/kubespray/tree/502ba663c555b848efd5a7e5b4c13c217b37b75e) с конфигурационными файлами для настройки Kubernetes.
 2. [Http доступ](http://89.169.130.17/) на 80 порту к web интерфейсу grafana.
@@ -191,12 +193,12 @@
 ---
 ## Что необходимо для сдачи задания?
 
-1. Репозиторий с конфигурационными файлами Terraform и готовность продемонстрировать создание всех ресурсов с нуля.
-2. Пример pull request с комментариями созданными atlantis'ом или снимки экрана из Terraform Cloud или вашего CI-CD-terraform pipeline.
-3. Репозиторий с конфигурацией ansible, если был выбран способ создания Kubernetes кластера при помощи ansible.
-4. Репозиторий с Dockerfile тестового приложения и ссылка на собранный docker image.
-5. Репозиторий с конфигурацией Kubernetes кластера.
-6. Ссылка на тестовое приложение и веб интерфейс Grafana с данными доступа.
+1. [Репозиторий с конфигурационными файлами Terraform](https://github.com/Markin-AI/diplom) и готовность продемонстрировать создание всех ресурсов с нуля.
+2. Пример [pull request с комментариями созданными atlantis'ом](https://github.com/Markin-AI/diplom/pull/3) или снимки экрана из Terraform Cloud или вашего CI-CD-terraform pipeline.
+3. [Репозиторий с конфигурацией ansible](https://github.com/Markin-AI/diplom/tree/main/terraform), если был выбран способ создания Kubernetes кластера при помощи ansible.
+4. [Репозиторий с Dockerfile](https://github.com/Markin-AI/diplom_app) тестового приложения и ссылка на собранный docker image.
+5. [Репозиторий с конфигурацией](https://github.com/Markin-AI/diplom_app) Kubernetes кластера.
+6. [Ссылка на тестовое приложение](http://89.169.130.17/app) и [веб интерфейс Grafana](http://89.169.130.17/) с данными доступа.
 7. Все репозитории рекомендуется хранить на одном ресурсе (github, gitlab)
 
 ---
