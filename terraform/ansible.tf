@@ -9,7 +9,7 @@ resource "local_file" "group_vars_file" {
 }
 
 resource "time_sleep" "wait_for_resource" {
-  create_duration = "60s" # Wait for 60 seconds during creation
+  create_duration = "6cayt0s" # Wait for 60 seconds during creation
   # Optional: destroy_duration = "30s" # Wait for 30 seconds during destruction
   depends_on = [yandex_compute_instance.master, yandex_compute_instance.worker] # Ensures the wait happens after my_server is created
 }
