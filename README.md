@@ -122,7 +122,7 @@
 2. Регистри с собранным docker image. В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
 
 ### Решение создание тестового приложения
-
+te
 Был создан отдельный [Git репозиторий](https://github.com/Markin-AI/diplom_app) с конфигруацией для nginx и dockerfile
 
 Получившийся Docker образ был опубликован в [Dockerhub](https://hub.docker.com/repository/docker/markinai/diplom_app/general)
@@ -144,7 +144,7 @@
 
 ### Решение подготовка cистемы мониторинга и деплой приложения
 
-Для деплоя [мониторинга](https://github.com/prometheus-community/helm-charts/) и приложения находящиеся в папке [./monitoring_app/myapp] был использован ingeress [./monitoring_app/ingress]
+Для деплоя [мониторинга](https://github.com/prometheus-community/helm-charts/) и [приложения находящиеся в отдельном репозитории](https://github.com/Markin-AI/diplom_app) был использован ingeress [./monitoring_app/ingress]
 
 По пути / открывается grafana c login: admin и password: prom-operator
 
@@ -168,10 +168,10 @@
 
 Ожидаемый результат:
 1. [Git репозиторий](https://github.com/kubernetes-sigs/kubespray/tree/502ba663c555b848efd5a7e5b4c13c217b37b75e) с конфигурационными файлами для настройки Kubernetes.
-2. [Http доступ](http://89.169.130.17/) на 80 порту к web интерфейсу grafana.
+2. [Http доступ](http://130.193.45.200/) на 80 порту к web интерфейсу grafana.
 3. Дашборды в grafana отображающие состояние Kubernetes кластера.
-4. [Http доступ](http://89.169.130.17/app) на 80 порту к тестовому приложению.
-5. [Atlantis](http://84.201.179.85:30080/) или terraform cloud или ci/cd-terraform
+4. [Http доступ](http://130.193.45.200/app) на 80 порту к тестовому приложению.
+5. [Atlantis](http://158.160.141.93:80/) или terraform cloud или ci/cd-terraform
 ---
 ### Установка и настройка CI/CD
 
@@ -189,6 +189,10 @@
 1. Интерфейс ci/cd сервиса доступен по http.
 2. При любом коммите в репозиторие с тестовым приложением происходит сборка и отправка в регистр Docker образа.
 3. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
+
+### Решение установка и настройка CI/CD
+
+Для этих целей был выбран GitHub Actions
 
 ---
 ## Что необходимо для сдачи задания?
