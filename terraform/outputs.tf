@@ -12,12 +12,12 @@ output "cluster-k8s-workers" {
   ]
 }
 
-output "Grafana_Network_Load_Balancer_Address" {
+output "Grafana_Web_App_Load_Balancer_Address" {
   value = yandex_lb_network_load_balancer.monapp.listener.*.external_address_spec[0].*.address
   description = "Адрес сетевого балансировщика для Grafana и Тестового приложения"
 }
 
-output "Web_App_Network_Load_Balancer_Address" {
+output "Atlantis_Network_Load_Balancer_Address" {
   value = yandex_lb_network_load_balancer.atlantis.listener.*.external_address_spec[0].*.address
   description = "Адрес сетевого балансировщика Atlantis"
 }
