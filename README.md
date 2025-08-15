@@ -168,10 +168,10 @@ te
 
 Ожидаемый результат:
 1. [Git репозиторий](https://github.com/kubernetes-sigs/kubespray/tree/502ba663c555b848efd5a7e5b4c13c217b37b75e) с конфигурационными файлами для настройки Kubernetes.
-2. [Http доступ](http://130.193.45.200/) на 80 порту к web интерфейсу grafana.
+2. [Http доступ](http://158.160.153.127/) на 80 порту к web интерфейсу grafana.
 3. Дашборды в grafana отображающие состояние Kubernetes кластера.
-4. [Http доступ](http://130.193.45.200/app) на 80 порту к тестовому приложению.
-5. [Atlantis](http://158.160.141.93:80/) или terraform cloud или ci/cd-terraform
+4. [Http доступ](http://158.160.153.127/app) на 80 порту к тестовому приложению.
+5. [Atlantis](http://158.160.153.127:80/) или terraform cloud или ci/cd-terraform
 ---
 ### Установка и настройка CI/CD
 
@@ -194,6 +194,32 @@ te
 
 Для этих целей был выбран GitHub Actions
 
+Были добавлены секреты для доступа к dockerhub и kubernetes кластера
+
+![13](./img/13.png)
+
+Был написан [WorkFlows file](https://github.com/Markin-AI/diplom_app/blob/main/.github/workflows/build.yml)
+
+C 2-мя стадими как указана в тз
+
+При создании любого коммита собирается docker образ и отправляется с Dockerhub с тегом в виде хэша коммита
+
+![14](./img/14.png)
+
+![15](./img/14.png)
+
+![16](./img/14.png)
+
+При создании тега (например, v1.0.1) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
+
+![17](./img/17.png)
+
+![18](./img/18.png)
+
+![19](./img/19.png)
+
+![20](./img/20.png)
+
 ---
 ## Что необходимо для сдачи задания?
 
@@ -202,7 +228,7 @@ te
 3. [Репозиторий с конфигурацией ansible](https://github.com/Markin-AI/diplom/tree/main/terraform), если был выбран способ создания Kubernetes кластера при помощи ansible.
 4. [Репозиторий с Dockerfile](https://github.com/Markin-AI/diplom_app) тестового приложения и ссылка на собранный docker image.
 5. [Репозиторий с конфигурацией](https://github.com/Markin-AI/diplom_app) Kubernetes кластера.
-6. [Ссылка на тестовое приложение](http://89.169.130.17/app) и [веб интерфейс Grafana](http://89.169.130.17/) с данными доступа.
+6. [Ссылка на тестовое приложение](http://158.160.153.127/app) и [веб интерфейс Grafana](http://158.160.153.127/) с данными доступа.
 7. Все репозитории рекомендуется хранить на одном ресурсе (github, gitlab)
 
 ---
